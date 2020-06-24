@@ -1,41 +1,29 @@
-katz_deli = [];
 
- def line(katz_deli){
-  if(!katz_deli.length) {
-    return "The line is currently empty.";
-  }
-  def lineNamesandNumbers = [];
+katz_deli = []
 
-  for( i=0; i<katz_deli.length; i++) {
-    lineNamesandNumbers.push(i+1 + ". "+ katz_deli[i]);
-  }
-  console.log("The line is currently: " + lineNamesandNumbers)
-  return "The line is currently: " + lineNamesandNumbers.join(', ');
-}
+def line(line_array)
+  if line_array.size == 0
+    puts "The line is currently empty."
+  else
+    line_message = "The line is currently: "
+    line_array.each_with_index do |name, index|
+      line_message += "#{index + 1}. #{name} "
+    end
+    puts line_message.rstrip
+  end
+end
 
-def now_serving(katz_deli) {
-  if(!katz_deli.length) {
-    console.log("There is nobody waiting to be served!")
-    return "There is nobody waiting to be served!"
-  } else {
-    //console.log("Currently serving " + katz_deli.shift());
-    return "Currently serving " + katz_deli.shift();
-  }
-}
+def take_a_number(line_array, name)
+  line_array << name
+  puts "Welcome, #{name}. You are number #{line_array.size} in line."
+end
 
-def take_a_number(katz_deli, name){
-  katz_deli.push(name);
+def now_serving(line_array)
+  if line_array.size == 0
+    puts "There is nobody waiting to be served!"
+  else
 
-  console.log("Welcome, " + name + ". You are number " + line.length + " in line.");
-
-  return "Welcome, " + name + ". You are number " + line.length + " in line."
-}
-takeANumber(katz_deli, "Ada")
-takeANumber(katz_deli, "Grace")
-takeANumber(katz_deli, "Kent")
-currentLine(katz_deli);
-nowServing(katz_deli);
-takeANumber(katz_deli, "Matz");
-currentLine(katz_deli);
-nowServing(katz_deli);
-currentLine(katz_deli)
+    current_customer = line_array.shift
+    puts "Currently serving #{current_customer}."
+  end
+end
