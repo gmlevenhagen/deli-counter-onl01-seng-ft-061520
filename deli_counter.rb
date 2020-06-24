@@ -1,30 +1,30 @@
 katz_deli = [];
 
-function currentLine(line){
-  if(!line.length) {
+ def line(katz_deli){
+  if(!katz_deli.length) {
     return "The line is currently empty.";
   }
-  var lineNamesandNumbers = [];
+  def lineNamesandNumbers = [];
 
-  for(var i=0; i<line.length; i++) {
-    lineNamesandNumbers.push(i+1 + ". "+ line[i]);
+  for( i=0; i<katz_deli.length; i++) {
+    lineNamesandNumbers.push(i+1 + ". "+ katz_deli[i]);
   }
   console.log("The line is currently: " + lineNamesandNumbers)
   return "The line is currently: " + lineNamesandNumbers.join(', ');
 }
 
-function now_serving(line) {
-  if(!line.length) {
+def now_serving(katz_deli) {
+  if(!katz_deli.length) {
     console.log("There is nobody waiting to be served!")
     return "There is nobody waiting to be served!"
   } else {
-    //console.log("Currently serving " + line.shift());
-    return "Currently serving " + line.shift();
+    //console.log("Currently serving " + katz_deli.shift());
+    return "Currently serving " + katz_deli.shift();
   }
 }
 
-function take_a_number(line, name){
-  line.push(name);
+def take_a_number(katz_deli, name){
+  katz_deli.push(name);
 
   console.log("Welcome, " + name + ". You are number " + line.length + " in line.");
 
