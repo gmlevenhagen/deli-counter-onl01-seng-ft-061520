@@ -1,17 +1,41 @@
-katz_deli = []
+katz_deli = [];
 
-def take_a_number(katz_deli , name)
-    katz_deli.push(name)
-    position = katz_deli.index(name)
-    puts "Welcome, #{name} you are number #{katz_deli.index(name) + 1}."
-    return name, position
-  end
+function currentLine(line){
+  if(!line.length) {
+    return "The line is currently empty.";
+  }
+  var lineNamesandNumbers = [];
 
-take_a_number(katz_deli, "Ada") #=> Welcome, Ada. You are number 1 in line.
- take_a_number(katz_deli, "Grace") #=> Welcome, Grace. You are number 2 in line.
- take_a_number(katz_deli, "Kent") #=> Welcome, Kent. You are number 3 in line.
+  for(var i=0; i<line.length; i++) {
+    lineNamesandNumbers.push(i+1 + ". "+ line[i]);
+  }
+  console.log("The line is currently: " + lineNamesandNumbers)
+  return "The line is currently: " + lineNamesandNumbers.join(', ');
+}
 
- def line(katz_deli)
-  katz_deli.length == 0
-    puts "The line is currently empty."
-  end
+function now_serving(line) {
+  if(!line.length) {
+    console.log("There is nobody waiting to be served!")
+    return "There is nobody waiting to be served!"
+  } else {
+    //console.log("Currently serving " + line.shift());
+    return "Currently serving " + line.shift();
+  }
+}
+
+function take_a_number(line, name){
+  line.push(name);
+
+  console.log("Welcome, " + name + ". You are number " + line.length + " in line.");
+
+  return "Welcome, " + name + ". You are number " + line.length + " in line."
+}
+takeANumber(katz_deli, "Ada")
+takeANumber(katz_deli, "Grace")
+takeANumber(katz_deli, "Kent")
+currentLine(katz_deli);
+nowServing(katz_deli);
+takeANumber(katz_deli, "Matz");
+currentLine(katz_deli);
+nowServing(katz_deli);
+currentLine(katz_deli)
